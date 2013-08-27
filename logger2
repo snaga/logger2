@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Copyright(c) 2013 Uptime Technologies, LLC.
+
+MSG=$1
+
+PGHOST=myhost
+PGPORT=5432
+PGUSER=foo
+DBNAME=bar
+
+if [ x"$MSG" = "x" ]; then
+  echo "Usage: $0 <msg>"
+  exit
+fi
+
+psql -h $PGHOST -p $PGPORT -U $PGUSER $DBNAME <<_E_;
+INSERT INTO log.log VALUES (now(), '$HOSTNAME', '$MSG');
+_E_
+
+
