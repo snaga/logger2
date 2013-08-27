@@ -2,6 +2,10 @@
 
 # Copyright(c) 2013 Uptime Technologies, LLC.
 
+# To submit your message without password prompt,
+# you may need to configure ~/.pgpass.
+# http://www.postgresql.org/docs/9.2/static/libpq-pgpass.html
+
 MSG=$1
 
 PGHOST=myhost
